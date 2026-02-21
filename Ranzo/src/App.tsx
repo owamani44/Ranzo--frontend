@@ -5,7 +5,7 @@ import Login from "./Pages/login/Login";
 import Register from "./Pages/login/Register";
 import Medical from "./Pages/medical/medical";
 import Weight from "./Pages/weight/Weight";
-import Dashboard from "./Pages/dashboard/Dashboard";
+import Home from "./Pages/home/Home";
 
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <BrowserRouter>
         <Routes>
           <Route path="/">
-          <Route index element={<Dashboard/>}/>
+          <Route index element={<Home/>}/>
           <Route path="Login" element={<Login/>}/>
           <Route path="register" element={<Register/>}/>
           <Route path="animals" element={<Animals/>}/>
