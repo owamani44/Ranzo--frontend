@@ -3,5 +3,13 @@
     .homeContainer{
         background-color: white;
         flex:6;
+        .widgets, .charts{
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+        .chart{
+            padding:5px 20px;
+        }
     }
 }

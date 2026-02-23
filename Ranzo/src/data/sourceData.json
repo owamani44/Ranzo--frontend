@@ -1,0 +1,20 @@
+[
+    {
+        "label":"Alive",
+        "value":"987"
+    },
+    {
+        "label":"Sick",
+        "value":"34"
+    },
+    {   
+        "label":"Dead",
+        "value":"10"
+    },
+    {
+        "label":"Sold",
+        "value":"23"
+    }
+
+
+]

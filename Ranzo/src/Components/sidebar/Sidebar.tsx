@@ -1,6 +1,6 @@
 import "./sidebar.scss"
 import GiteIcon from '@mui/icons-material/Gite';
-import BedroomBabyIcon from '@mui/icons-material/BedroomBaby';
+import { GiCow } from "react-icons/gi";
 import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
 import ScaleIcon from '@mui/icons-material/Scale';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -20,7 +20,7 @@ const Sidebar = () => {
                     <span>Home</span>
                 </li>
                 <li>
-                    <BedroomBabyIcon className="icon"/>
+                    <GiCow className="icon"/>
                     <span>Animals</span>
                 </li>
                 <li>
@@ -36,12 +36,15 @@ const Sidebar = () => {
                      <span>Profile</span>
                 </li>
                 <li>
-                    <LogoutIcon/>
+                    <LogoutIcon className="icon"/>
                     <span>Logout</span>
                 </li>
             </ul>
         </div>
-        <div className="bottom">colour options</div>
+        <div className="bottom">
+            <div className="colourOption"></div>
+            <div className="colourOption"></div>
+        </div>
     </div>
   )
 }
