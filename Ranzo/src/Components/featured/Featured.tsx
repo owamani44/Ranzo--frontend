@@ -34,7 +34,7 @@ const Featured = () => {
             }}
             options={{
               cutout: "80%",
-              radius: "80%",
+              radius: "90%",
               plugins: {
                 legend: { position: "right" },
               },

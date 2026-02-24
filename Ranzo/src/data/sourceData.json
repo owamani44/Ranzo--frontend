@@ -5,15 +5,15 @@
     },
     {
         "label":"Sick",
-        "value":"34"
+        "value":"76"
     },
     {   
         "label":"Dead",
-        "value":"10"
+        "value":"97"
     },
     {
         "label":"Sold",
-        "value":"23"
+        "value":"400"
     }
 
 

@@ -3,14 +3,29 @@
     background-color: rgb(244, 249, 244);
     min-height: 100vh;
     .top{
-        height: 50px;
+        height: 88px;
         display: flex;
         align-items: center;
         justify-content: center;
         .logo{
-            font-size: 20px;
-            font-weight: bold;
-            color: rgb(13, 148, 9);
+            width: 200%;
+            height: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            overflow: hidden;
+            color: rgb(8, 121, 8);
+
+             img{
+                width: 200%;
+                height: 200%;
+                object-fit: contain;
+                object-position:fit;
+                display: block;
+                background-color: transparent;
+                color: rgb(8, 121, 8);
+             }
         } 
     }
     hr{
@@ -28,10 +43,12 @@
           li{
             display: flex;
             align-items: center;
-            padding: 5px;
-            cursor: pointer;
+            padding: 10px;
+            cursor:progress;
             &:hover{
                 background-color: rgb(181, 250, 181);
+                border-radius: 5px;
+                margin: 5px;
             }
           }
           .icon{

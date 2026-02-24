@@ -19,7 +19,7 @@ interface WidgetData {
 const widgetData: Record<WidgetType, WidgetData> = {
   Animals: {
     title: "Total Animals",
-    icon: <GiCow className="icon"  style={{color:"green",backgroundColor:"transparent"}}/>,
+    icon: <GiCow className="icon"  style={{color:"black",backgroundColor:"transparent"}}/>,
   },
   SickCount: {
     title: "Sick Animals",

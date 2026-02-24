@@ -5,12 +5,15 @@ import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
 import ScaleIcon from '@mui/icons-material/Scale';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import logo from '../../assets/ranzo.png';
 
 const Sidebar = () => {
   return (
     < div className="sidebar">
         <div className="top">
-            <span className="logo">Ranzo</span>
+            <span className="logo">
+                <img src={logo} alt="Ranzo Logo" />
+            </span>
             </div>
             <hr />
         <div className="centre">

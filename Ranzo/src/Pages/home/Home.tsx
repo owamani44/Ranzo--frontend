@@ -4,6 +4,7 @@ import Navbar from "../../Components/navbar/Navbar"
 import Widget from "../../Components/widget/Widget"
 import Featured from "../../Components/featured/Featured"
 import Chart from "../../Components/chart/Chart"
+import Table from "../../Components/table/Table"
 
 function Home() {
   
@@ -20,6 +21,12 @@ function Home() {
         <div className="charts">
           <Featured/>
           <Chart/>
+        </div>
+        <div className="listContainer">
+          <div className="listTitle">
+            Latest Animal records
+          </div>
+          <Table/>
         </div>
       </div>
     </div>
