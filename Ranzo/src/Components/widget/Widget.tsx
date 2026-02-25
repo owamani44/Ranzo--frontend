@@ -27,7 +27,7 @@ const widgetData: Record<WidgetType, WidgetData> = {
   },
   "Average Weight": {
     title: "Average Weight",
-    icon: <BarChartIcon className="icon" style={{color:"blue",backgroundColor:"transparent"}}/>,
+    icon: <BarChartIcon className="icon" style={{color:"#1993effe",backgroundColor:"transparent"}}/>,
   },
 };
 
