@@ -3,45 +3,56 @@ import GiteIcon from '@mui/icons-material/Gite';
 import { GiCow } from "react-icons/gi";
 import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
 import ScaleIcon from '@mui/icons-material/Scale';
-import LogoutIcon from '@mui/icons-material/Logout';
+
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import logo from '../../assets/ranzo.png';
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    < div className="sidebar">
+    <div className="sidebar">
         <div className="top">
             <span className="logo">
                 <img src={logo} alt="Ranzo Logo" />
             </span>
             </div>
             <hr />
+        
         <div className="centre">
             <ul>
-                <li>
+                <Link to="/">
+                    <li>
                     <GiteIcon className="icon"/>
                     <span>Home</span>
                 </li>
+                </Link>
+
+                <Link to="/animals">
                 <li>
                     <GiCow className="icon"/>
                     <span>Animals</span>
                 </li>
+                </Link>
+
+                <Link to="/medical-records">
                 <li>
                     <MedicalInformationIcon className="icon"/>
                     <span>Medical Records</span>
                 </li>
+                </Link>
+
+                <Link to="/weight-records">
                 <li>
                     <ScaleIcon className="icon"/>
                     <span>Weight Records</span>
                 </li>
+                </Link>
+               
                 <li>
                     <AccountBoxIcon className="icon"/>
                      <span>Profile</span>
                 </li>
-                <li>
-                    <LogoutIcon className="icon"/>
-                    <span>Logout</span>
-                </li>
+                
             </ul>
         </div>
         <div className="bottom">
