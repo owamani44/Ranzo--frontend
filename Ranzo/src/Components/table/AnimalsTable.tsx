@@ -21,6 +21,10 @@ type ApiAnimal = {
   updatedOn?: string | null;
 };
 
+type TableProps = {
+  refreshKey?: number;
+};
+
 type TableAnimal = {
   id: number | string;
   tagNumber: string;
@@ -43,60 +47,58 @@ const firstNonEmpty = (...vals: unknown[]): string => {
   return "-";
 };
 
-const rowsFromRes = (resData: any): ApiAnimal[] =>
-  Array.isArray(resData)
-    ? resData
-    : Array.isArray(resData?.data)
-    ? resData.data
-    : Array.isArray(resData?.content)
-    ? resData.content
+const rowsFromRes = (d: any): ApiAnimal[] =>
+  Array.isArray(d)
+    ? d
+    : Array.isArray(d?.data)
+    ? d.data
+    : Array.isArray(d?.content)
+    ? d.content
     : [];
 
-const normalize = (a: ApiAnimal, i: number): TableAnimal => {
-  const kraalName =
-    typeof a.kraal === "string" ? a.kraal : a.kraal?.name ?? undefined;
-
-  return {
-    id: a.id ?? i,
-    tagNumber: firstNonEmpty(a.tag_number, a.tagNumber),
-    species: firstNonEmpty(a.species),
-    breed: firstNonEmpty(a.breed),
-    gender: firstNonEmpty(a.gender),
-    kraalAssignment: firstNonEmpty(
-      a.kraal_assignment,
-      a.kraalAssignment,
-      kraalName
-    ),
-    status: firstNonEmpty(a.status),
-    birthDate: firstNonEmpty(a.birth_date, a.birthDate),
-    registeredOn: firstNonEmpty(a.registered_on, a.registeredOn),
-    updatedOn: firstNonEmpty(a.updated_on, a.updatedOn),
-  };
-};
-
-const Table = (): JSX.Element => {
+const Table = ({ refreshKey = 0 }: TableProps) => {
   const [animals, setAnimals] = useState<TableAnimal[]>([]);
 
   useEffect(() => {
     let mounted = true;
-
-    (async () => {
+    const fetchAnimals = async () => {
       try {
         const res = await myAxios.get("/animals");
         const raw = rowsFromRes(res.data);
-        const normalized = raw.map(normalize);
+        const normalized = raw.map((a, i) => {
+          const kraalName =
+            typeof a.kraal === "string" ? a.kraal : a.kraal?.name ?? undefined;
+
+          return {
+            id: a.id ?? i,
+            tagNumber: firstNonEmpty(a.tag_number, a.tagNumber),
+            species: firstNonEmpty(a.species),
+            breed: firstNonEmpty(a.breed),
+            gender: firstNonEmpty(a.gender),
+            kraalAssignment: firstNonEmpty(
+              a.kraal_assignment,
+              a.kraalAssignment,
+              kraalName
+            ),
+            status: firstNonEmpty(a.status),
+            birthDate: firstNonEmpty(a.birth_date, a.birthDate),
+            registeredOn: firstNonEmpty(a.registered_on, a.registeredOn),
+            updatedOn: firstNonEmpty(a.updated_on, a.updatedOn),
+          };
+        });
         if (mounted) setAnimals(normalized);
       } catch (err) {
-        // keep simple: log here — you can replace with toast/notification
+        // keep it simple — replace with your toast/logger if you like
         // eslint-disable-next-line no-console
         console.error(err);
       }
-    })();
+    };
 
+    void fetchAnimals();
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [refreshKey]);
 
   return (
     <div className="table">
@@ -135,16 +137,3 @@ const Table = (): JSX.Element => {
 };
 
 export default Table;
-
-/*{
-    id: 9,
-    tag_number: "KO2-015",
-    species: "COW",
-    breed: "Ankole",
-    gender: "Female",
-    kraal_assignment: "Kraal 2",
-    status: "ALIVE",
-    birth_date: "2023-08-23",
-    registered_on: "2026-01-28",
-    updated_on: "2026-01-28"
-}*/
