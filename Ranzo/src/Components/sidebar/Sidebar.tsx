@@ -20,37 +20,40 @@ const Sidebar = () => {
         
         <div className="centre">
             <ul>
-                <Link to="/">
-                    <li>
+                
+                <li>
+                <Link to="/home" className="link">
                     <GiteIcon className="icon"/>
                     <span>Home</span>
-                </li>
                 </Link>
-
-                <Link to="/animals">
+                </li>
+                
                 <li>
+                    <Link to="/animals" className="link">
                     <GiCow className="icon"/>
                     <span>Animals</span>
+                    </Link>
                 </li>
-                </Link>
-
-                <Link to="/medical-records">
+                
                 <li>
+                    <Link to="/medical-records" className="link">
                     <MedicalInformationIcon className="icon"/>
                     <span>Medical Records</span>
+                    </Link>
                 </li>
-                </Link>
-
-                <Link to="/weight-records">
+                
                 <li>
+                    <Link to="/weight-records" className="link">
                     <ScaleIcon className="icon"/>
                     <span>Weight Records</span>
+                    </Link>
                 </li>
-                </Link>
                
                 <li>
+                    <Link to="/profile" className="link">
                     <AccountBoxIcon className="icon"/>
                      <span>Profile</span>
+                    </Link>
                 </li>
                 
             </ul>

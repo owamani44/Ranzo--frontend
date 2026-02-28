@@ -1,0 +1,55 @@
+.medical{
+    display: flex;
+    .container {
+    flex: 6;
+    width: 100%;
+
+    .addAnimal {
+      margin: 10px;
+      padding: 16px;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      background-color: #ffffff;
+
+      h3 {
+        margin: 0 0 12px;
+        font-size: 18px;
+        color: #f31313;
+      }
+
+      .animalForm {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px 16px;
+
+          input {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            background-color: #ffffff;
+            color: #111827;
+            outline: none;
+            transition: border-color 0.2s ease;
+
+            &:focus {
+              border-color: rgb(8, 121, 8);
+            }
+          }
+           button {
+            padding: 10px;
+            margin-top: 16px;
+            background-color: rgb(8, 121, 8);
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+
+      }
+        }
+
+         
+    }
+    }
+}

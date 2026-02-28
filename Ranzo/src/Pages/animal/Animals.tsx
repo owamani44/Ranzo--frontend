@@ -3,6 +3,7 @@ import Sidebar from "../../Components/sidebar/Sidebar"
 import Table from "../../Components/table/AnimalsTable"
 import './Animals.scss'
 import { myAxios } from "../../api"
+import { useState } from "react"
 
 function Animals() {
   const [registerForm, setRegisterForm] = useState({
@@ -13,10 +14,10 @@ function Animals() {
     birthDate: "",
     kraalAssignment: "",
     })
-  const handleInput = (event)=>{
+  const handleInput = (event:React.ChangeEvent<HTMLInputElement>)=>{
         setRegisterForm({...registerForm, [event.target.name]: event.target.value})
   }
-  function handleSubmit (event){
+  function handleSubmit (event:React.ChangeEvent<HTMLFormElement>){
     event.preventDefault();
     myAxios.post("/animals", registerForm)
     .then(res=>{
@@ -43,8 +44,9 @@ function Animals() {
             <input type="text" onChange={handleInput} name="gender" placeholder="Gender"/>
             <input type="date" onChange={handleInput} name="birthDate" placeholder="Birth Date "/>
             <input type="text" onChange={handleInput} name="kraalAssignment" placeholder="Kraal Assignment"/>
+            <button>Register Animal</button>
           </form>
-          <button>Register Animal</button>
+          
         </div>
        <div className="table">
         <Table/>
