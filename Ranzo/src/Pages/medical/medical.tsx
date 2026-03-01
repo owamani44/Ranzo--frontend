@@ -7,23 +7,21 @@ import { myAxios } from "../../api"
 function medical() {
      const [registerForm, setRegisterForm] = useState({
          tagNumber: "",
-         species: "", 
-         breed: "",
-         gender:"",
-         birthDate: "",
-         kraalAssignment: "",
+          eventType: "", 
+          symptoms: "",
+          recordedBy: ""
          })
-       const handleInput = (event:React.ChangeEvent<HTMLInputElement>)=>{
+       const handleInput = (event:React.ChangeEvent<HTMLInputElement| HTMLSelectElement >)=>{
              setRegisterForm({...registerForm, [event.target.name]: event.target.value})
        }
        function handleSubmit (event:React.ChangeEvent<HTMLFormElement>){
          event.preventDefault();
-         myAxios.post("/animals", registerForm)
+         myAxios.post("/health-events", registerForm)
          .then(res=>{
-           console.log("Animal registered successfully", res.data)
+           console.log("Sickness report filed successfully", res.data)
          })
          .catch(err=>{
-           console.error("Error registering animal", err)
+           console.error("Error filing sickness report", err) 
          })
        }
        return (
@@ -37,13 +35,40 @@ function medical() {
              <div className="addAnimal">
                <h3>Report Sick Animal</h3>
                <form onSubmit={handleSubmit} className="animalForm">
-                 <input type="text" onChange={handleInput} name="tagNumber" placeholder="Tag Number"/>
-                 <input type="text" onChange={handleInput} name="species" placeholder="Species"/>
-                 <input type="text" onChange={handleInput} name="breed" placeholder="Breed"/>
-                 <input type="text" onChange={handleInput} name="gender" placeholder="Gender"/>
-                 <input type="date" onChange={handleInput} name="birthDate" placeholder="Birth Date "/>
-                 <input type="text" onChange={handleInput} name="kraalAssignment" placeholder="Kraal Assignment"/>
-                 <button>Register Animal</button>
+                 <input
+                  type="text"
+                  value={registerForm.tagNumber}
+                   onChange={handleInput} 
+                   name="tagNumber" 
+                   placeholder="Tag Number"
+                   />
+                 <select
+                  value={registerForm.eventType}
+                  onChange={handleInput}
+                  name="eventType" 
+                  >
+                    <option value="">Illness</option>
+                    <option value="Sickness">Vaccination</option>
+                    <option value="Injury">Injury</option>
+                    <option value="Other">Checkup</option>
+
+                </select>
+                 <input type="text"
+                  onChange={handleInput} 
+                  value={registerForm.symptoms}
+                  name="symptoms" 
+                  placeholder="Symptoms"
+                  />
+                 <input 
+                 type="text"
+                  onChange={handleInput}
+                  value={registerForm.recordedBy}
+                   name="recordedBy" 
+                   placeholder="Recorded By"
+                   /> 
+                
+      
+                 <button type="submit">Register Animal</button>
                </form>
                
              </div>
