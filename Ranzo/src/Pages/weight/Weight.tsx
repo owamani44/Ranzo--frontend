@@ -51,19 +51,11 @@ function Weight() {
                    
                    <button type="submit">Record Weight</button>
                  </form>
-                 
-               </div>
-                <div className="chartContainer">
                   
-                <div className="widget">
-                  <div className="left">
-                     <span className="title">Ready to Sale livestock</span>
-                  <span className="count">34</span>
+                   <div className="contentContainer">
+                         <Chart/>
                    </div>
-                </div>
-                  
                    
-                    <Chart/>
                   
       
           </div>
