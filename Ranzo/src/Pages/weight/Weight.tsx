@@ -13,7 +13,7 @@ function Weight() {
          const handleInput = (event:React.ChangeEvent<HTMLInputElement>)=>{
                setRegisterForm({...registerForm, [event.target.name]: event.target.value})
          }
-         function handleSubmit (event:React.ChangeEvent<HTMLFormElement>){
+         function handleSubmit (event:React.FormEvent<HTMLFormElement>){
            event.preventDefault();
            myAxios.post("/weight", registerForm)
            .then(res=>{
@@ -34,19 +34,44 @@ function Weight() {
                <div className="addAnimal">
                  <h3>Record Weight</h3>
                  <form onSubmit={handleSubmit} className="form">
-                   <input type="text" onChange={handleInput} name="tagNumber" placeholder="Tag Number"/>
-                   <input type="text" onChange={handleInput} name="weight" placeholder="Weight in Kgs"/>
+                   <input 
+                    type="text"
+                    onChange={handleInput}
+                    name="tagNumber"
+                    value={registerForm.tagNumber}
+                    placeholder="Tag Number"
+                    />
+                   <input
+                    type="text"
+                    onChange={handleInput}
+                    name="weight" 
+                    value={registerForm.weight}
+                    placeholder="Weight in Kgs"
+                    />
                    
-                   <button>Record Weight</button>
+                   <button type="submit">Record Weight</button>
                  </form>
                  
                </div>
                 <div className="chartContainer">
-                  <Chart/>
+                  
+                <div className="widget">
+                  <div className="left">
+                     <span className="title">Ready to Sale livestock</span>
+                  <span className="count">34</span>
+                   </div>
                 </div>
+                  
+                   
+                    <Chart/>
+                  
+      
+          </div>
+
+        </div>
                
-              </div>
-              </div>
+        </div>
+              
     )
   }
 
