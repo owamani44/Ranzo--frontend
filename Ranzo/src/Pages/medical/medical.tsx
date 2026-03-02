@@ -47,10 +47,10 @@ function medical() {
                   onChange={handleInput}
                   name="eventType" 
                   >
-                    <option value="">Illness</option>
-                    <option value="Sickness">Vaccination</option>
+                    <option value="Illness">Illness</option>
+                    <option value="Vaccination">Vaccination</option>
                     <option value="Injury">Injury</option>
-                    <option value="Other">Checkup</option>
+                    <option value="Checkup">Checkup</option>
 
                 </select>
                  <input type="text"
