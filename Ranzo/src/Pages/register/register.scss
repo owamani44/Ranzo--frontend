@@ -52,6 +52,8 @@
             color: #111827;
 
             input, select{
+                display:flex;
+                
                 width: 100%;
                 padding: 10px;
                 margin-top: 8px;
@@ -65,7 +67,21 @@
                 &:focus {
                     border-color: rgb(8, 121, 8);
                 }
+                .showPassword {
+                 position: absolute;
+                right: 10px;
+                 top: 50%;
+                    cursor: pointer;
+                color: gray;
+                }
+            
             }
+            
+                
+
+             
+
+            
         }
         button{
             padding: 10px;
