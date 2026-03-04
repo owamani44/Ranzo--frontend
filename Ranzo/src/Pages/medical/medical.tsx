@@ -37,7 +37,7 @@ function medical() {
        }
        function handleSubmitForMed (event:React.ChangeEvent<HTMLFormElement>){
          event.preventDefault();
-         myAxios.post("/medication", registerForm)
+         myAxios.post("/medication", medicalForm)
          .then(res=>{
            console.log("Sickness report filed successfully", res.data)
          })
@@ -56,6 +56,7 @@ function medical() {
              <div className="addAnimal">
                <h3>Report Sick Animal</h3>
                <form onSubmit={handleSubmit} className="animalForm">
+                <div className="formGroup">
                 <label htmlFor="tagNumber">Tag Number</label>
                  <input
                   type="text"
@@ -94,12 +95,15 @@ function medical() {
                 
       
                  <button type="submit">Report</button>
+                 </div>
                </form>
                
              </div>
              <div className="medication">
                 <h3 style={{color:"#3b81ea"}}>Document Medication</h3>
                <form onSubmit={handleSubmitForMed} className="medicationForm">
+                <div className="formGroup">
+                <label htmlFor="tagNumber">Tag Number</label>
                  <input
                   type="text"
                   value={medicalForm.tagNumber}
@@ -107,6 +111,8 @@ function medical() {
                    name="tagNumber" 
                    placeholder="Tag Number"
                    />
+
+                   <label htmlFor="type">Type of Medication</label>
                  <select
                   value={medicalForm.type}
                   onChange={handleInputForMed}
@@ -115,30 +121,33 @@ function medical() {
                     <option value="MEDICATION">MEDICATION</option>
                     <option value="VACCINATION">VACCINATION</option>
                     <option value="PROCEDURE">PROCEDURE</option>
-                    
-
                 </select>
+
+                <label htmlFor="status">Status of Medication</label>
                 <select
                   value={medicalForm.status}
                   onChange={handleInputForMed}
-                  name="eventType" 
+                  name="status" 
                   >
                     <option value="ACTIVE">ACTIVE</option>
                     <option value="COMPLETED">COMPLETED</option>
                   
                 </select>
+                <label htmlFor="drugName">Drug Name</label>
                 <input type="text"
                   onChange={handleInputForMed} 
                   value={medicalForm.drugName}
                   name="drugName" 
                   placeholder="Drug Name"
                   />
+                  <label htmlFor="dosage">Dosage</label>
                  <input type="text"
                   onChange={handleInputForMed} 
                   value={medicalForm.dosage}
                   name="dosage" 
                   placeholder="Dosage"
                   />
+                  <label htmlFor="administeredBy">Administered By</label>
                  <input 
                  type="text"
                   onChange={handleInputForMed}
@@ -149,6 +158,7 @@ function medical() {
                 
       
                  <button type="submit" style={{backgroundColor:"#3b81ea"}}>Record</button>
+                 </div>
                </form>
              </div>
             </div>
