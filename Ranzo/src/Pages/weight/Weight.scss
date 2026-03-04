@@ -1,7 +1,9 @@
 .weight{
     display: flex;
+    
     .container {
-    flex: 6;
+      display: flexbox;
+      flex: 6;
     width: 100%;
 
     .addAnimal {
@@ -65,4 +67,5 @@
 
     }
 }
+
 }

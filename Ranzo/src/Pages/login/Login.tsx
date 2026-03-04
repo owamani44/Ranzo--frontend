@@ -9,7 +9,7 @@ import VisibilityIconOutlined from '@mui/icons-material/VisibilityOutlined';
 function Login() {
   const currentYear = new Date().getFullYear();
   const navigate=useNavigate();
-  const [visible,setVisible]  =useState("true"); 
+  const [visible,setVisible]  =useState(true); 
   const [registerForm, setRegisterForm] = useState({
                 username: "",
                 password: "" 
