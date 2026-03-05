@@ -6,7 +6,7 @@ import ScaleIcon from '@mui/icons-material/Scale';
 
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import logo from '../../assets/ranzo.png';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -22,38 +22,38 @@ const Sidebar = () => {
             <ul>
                 
                 <li>
-                <Link to="/home" className="link">
+                <NavLink to="/home" className="link">
                     <GiteIcon className="icon"/>
                     <span>Home</span>
-                </Link>
+                </NavLink>
                 </li>
                 
                 <li>
-                    <Link to="/animals" className="link">
+                    <NavLink to="/animals" className="link">
                     <GiCow className="icon"/>
                     <span>Animals</span>
-                    </Link>
+                    </NavLink>
                 </li>
                 
                 <li>
-                    <Link to="/medical-records" className="link">
+                    <NavLink to="/medical-records" className="link">
                     <MedicalInformationIcon className="icon"/>
                     <span>Medical Records</span>
-                    </Link>
+                    </NavLink>
                 </li>
                 
                 <li>
-                    <Link to="/weight-records" className="link">
+                    <NavLink to="/weight-records" className="link">
                     <ScaleIcon className="icon"/>
                     <span>Weight Records</span>
-                    </Link>
+                    </NavLink>
                 </li>
                
                 <li>
-                    <Link to="/profile" className="link">
+                    <NavLink to="/profile" className="link">
                     <AccountBoxIcon className="icon"/>
                      <span>Profile</span>
-                    </Link>
+                    </NavLink>
                 </li>
                 
             </ul>

@@ -52,12 +52,16 @@
             .link{
                 text-decoration: none;
                 color: inherit;
+                .link.active{
+                background-color: rgb(181, 250, 181);
+            }
             }
             &:hover{
                 background-color: rgb(181, 250, 181);
                 border-radius: 5px;
                 margin: 5px;
             }
+            
           }
           .icon{
             font-size: 18px;

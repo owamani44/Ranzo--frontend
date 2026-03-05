@@ -38,11 +38,19 @@
               border-color: rgb(8, 121, 8);
             }
           }
+          .success{
+              color: green;
+              background-color: #e6ffe6;
+               padding: 10px;
+              border-radius: 5px;
+              margin-bottom: 10px;
+            }
            button {
             width: 70%;
             position: relative;
             bottom: 0;
             padding: 10px;
+            margin-left: 50px;
             margin-top: 16px;
             background-color: rgb(8, 121, 8);
             color: #ffffff;
@@ -50,6 +58,13 @@
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+                &:hover {
+                  transform: scale(1.1); 
+                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                }
+
 
         }
       }

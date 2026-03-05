@@ -6,6 +6,7 @@ import { myAxios } from "../../api"
 import Chart from '../../Components/chart/Chart';
 
 function Weight() {
+  const[successMessage, setSuccessMessage]=useState();
   const [registerForm, setRegisterForm] = useState({
            tagNumber: "", 
             weight: ""
@@ -18,6 +19,7 @@ function Weight() {
            myAxios.post("/weight", registerForm)
            .then(res=>{
              console.log("Weight recorded successfully", res.data)
+             setSuccessMessage("Weight Record Successfull")
            })
            .catch(err=>{
              console.error("Error recording weight", err)
@@ -48,7 +50,9 @@ function Weight() {
                     value={registerForm.weight}
                     placeholder="Weight in Kgs"
                     />
-                   
+                   {successMessage && (
+                      <p className="success">{successMessage}</p>
+                    )}
                    <button type="submit">Record Weight</button>
                  </form>
                 </div>

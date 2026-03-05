@@ -5,6 +5,7 @@ import './medical.scss';
 import { myAxios } from "../../api";
 
 function Medical() {
+    const [successMessage, setSuccessMessage] = useState("");
      const [registerForm, setRegisterForm] = useState({
          tagNumber: "",
           eventType: "ILLNESS", 
@@ -19,6 +20,7 @@ function Medical() {
          myAxios.post("/health-events", registerForm)
          .then(res=>{
            console.log("Sickness report filed successfully", res.data)
+           setSuccessMessage("Report filing successfully")
          })
          .catch(err=>{
            console.error("Error filing sickness report", err) 
@@ -71,10 +73,10 @@ function Medical() {
                  onChange={handleInput}
                  name="eventType" 
                   >
-                    <option value="ILLNESS">Illness</option>
-                    <option value="VACCINATION">Vaccination</option>
-                    <option value="INJURY">Injury</option>
-                    <option value="CHECKUP">Checkup</option>
+                    <option value="ILLNESS">ILLNESS</option>
+                    <option value="VACCINATION">VACCINATION</option>
+                    <option value="INJURY">INJURY</option>
+                    <option value="CHECKUP">CHECKUP</option>
 
                 </select>
                 <label htmlFor="symptoms">Symptoms</label>
@@ -92,9 +94,11 @@ function Medical() {
                    name="recordedBy" 
                    placeholder="Recorded By"
                    /> 
-                
-      
-                 <button type="submit">Report</button>
+                        
+                  {successMessage && (
+                      <p className="success">{successMessage}</p>
+                    )}
+                  <button type="submit">Report</button>
                  </div>
                </form>
                
