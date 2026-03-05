@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
-import Sidebar from "../../Components/sidebar/Sidebar"
-import Navbar from "../../Components/navbar/Navbar"
-import './medical.scss'
-import { myAxios } from "../../api"
+import Sidebar from "../../Components/sidebar/Sidebar";
+import Navbar from "../../Components/navbar/Navbar";
+import './medical.scss';
+import { myAxios } from "../../api";
 
-function medical() {
+function Medical() {
      const [registerForm, setRegisterForm] = useState({
          tagNumber: "",
-          eventType: "", 
+          eventType: "ILLNESS", 
           symptoms: "",
           recordedBy: ""
          })
        const handleInput = (event:React.ChangeEvent<HTMLInputElement| HTMLSelectElement >)=>{
              setRegisterForm({...registerForm, [event.target.name]: event.target.value})
        }
-       function handleSubmit (event:React.ChangeEvent<HTMLFormElement>){
+       function handleSubmit (event:React.FormEvent<HTMLFormElement>){
          event.preventDefault();
          myAxios.post("/health-events", registerForm)
          .then(res=>{
@@ -26,8 +26,8 @@ function medical() {
        }
        const [medicalForm, setMedicalForm] = useState({
          tagNumber: "",
-          type: "", 
-          status:"",
+          type: "MEDICATION", 
+          status:"ACTIVE",
           drugName: "",
           dosage:"",
           administeredBy: ""
@@ -35,11 +35,11 @@ function medical() {
        const handleInputForMed = (event:React.ChangeEvent<HTMLInputElement| HTMLSelectElement >)=>{
              setMedicalForm({...medicalForm, [event.target.name]: event.target.value})
        }
-       function handleSubmitForMed (event:React.ChangeEvent<HTMLFormElement>){
+       function handleSubmitForMed (event:React.FormEvent<HTMLFormElement>){
          event.preventDefault();
          myAxios.post("/medication", medicalForm)
          .then(res=>{
-           console.log("Sickness report filed successfully", res.data)
+           console.log("Medical form  filled successfully", res.data)
          })
          .catch(err=>{
            console.error("Error filing sickness report", err) 
@@ -68,13 +68,13 @@ function medical() {
                    <label htmlFor="eventType">Alert Type</label>
                  <select
                   value={registerForm.eventType}
-                  onChange={handleInput}
-                  name="eventType" 
+                 onChange={handleInput}
+                 name="eventType" 
                   >
-                    <option value="Illness">Illness</option>
-                    <option value="Vaccination">Vaccination</option>
-                    <option value="Injury">Injury</option>
-                    <option value="Checkup">Checkup</option>
+                    <option value="ILLNESS">Illness</option>
+                    <option value="VACCINATION">Vaccination</option>
+                    <option value="INJURY">Injury</option>
+                    <option value="CHECKUP">Checkup</option>
 
                 </select>
                 <label htmlFor="symptoms">Symptoms</label>
@@ -166,4 +166,4 @@ function medical() {
   )
 }
 
-export default medical;
+export default Medical;

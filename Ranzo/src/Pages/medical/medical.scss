@@ -1,5 +1,9 @@
 .medical{
     display: flex;
+    sideBar{
+      position: static;
+      height: 100vh;
+    }
     .container {
     flex: 6;
     width: 100%;
