@@ -10,7 +10,9 @@ const Profile = () => {
         <Navbar/>
       </div>
       <div className="container">
-       
+        <div className="cardContainer">
+          
+        </div>
       </div>
     </div>
   )
