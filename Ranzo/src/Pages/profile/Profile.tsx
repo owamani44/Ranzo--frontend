@@ -6,8 +6,11 @@ const Profile = () => {
   return (
     <div className="profile">
       <Sidebar/>
-      <div className="container">
+      <div className="navContainer">
         <Navbar/>
+      </div>
+      <div className="container">
+       
       </div>
     </div>
   )
